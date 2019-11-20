@@ -8,7 +8,7 @@ router.use(express.urlencoded({extended: true}));
 // Input order
 router.get('/', controllerUser.viewIndex);
 router.post('/', controllerUser.createOrder);
-router.get('/order', controllerUser.viewOrder);
-router.post('/order', controllerUser.updateOrder);
+router.get('/order/:id', controllerUser.viewOrder);
+router.post('/order/:id', controllerUser.updateOrder);
 
 module.exports = router;

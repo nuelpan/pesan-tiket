@@ -47,6 +47,7 @@ class ControllerUser {
         return modelUser.findOne({
             include: modelRoute,
             where: {
+                id: req.params.id,
                 email: 'michael.wenceslaus@gmail.com',
                 password: 'password'
             }
