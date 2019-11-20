@@ -51,11 +51,11 @@ class controllerAdmin {
     }
 
     static viewTickets(req, res) {
-      modelUser.findAll({include: modelRoute})
-      .then((dataUser) => {
-        res.send(dataUser)
+      modelUser.findAll({include: modelRoute, individualHooks: true})
+      .then((dataTickets) => {
+        // res.send(dataTickets)
+        res.render('tickets', {title: "Tickets", dataTickets: dataTickets})
       })
-      res.render('tickets', {title: "Tickets"})
     }
 }
 
