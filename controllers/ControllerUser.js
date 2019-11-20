@@ -1,5 +1,6 @@
 const modelUser = require('../models').User;
 const modelRoute = require('../models').Route;
+const modelTicket = require('../models').Ticket;
 
 class ControllerUser {
     static findAll(req, res) {
@@ -20,7 +21,9 @@ class ControllerUser {
     }
 
     static createOrder(req, res) {
-
+        // modelTicket.create({
+        //     userId:
+        // })
     }
 
     static viewOrder(req, res) {
