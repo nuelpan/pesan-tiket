@@ -1,6 +1,8 @@
 const express = require('express');
+
 const router  = express.Router();
 const controllerAdmin = require('../controllers/controllerAdmin');
+
 
 // encoded url
 router.use(express.urlencoded({extended: true}));
