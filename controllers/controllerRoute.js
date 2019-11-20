@@ -12,3 +12,5 @@ class controllerRoute {
 
     }
 }
+
+module.exports = controllerRoute

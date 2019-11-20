@@ -1,5 +1,5 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {  
   const Route = sequelize.define('Route', {
     from: DataTypes.STRING,
     to: DataTypes.STRING,
