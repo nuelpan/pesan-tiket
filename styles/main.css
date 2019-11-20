@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  color: #3e3e3e;
+}
+
+nav {
+  height: 3rem;
+  background: #7ed6df;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  height: 100%;
+  list-style: none;
+  
+}
