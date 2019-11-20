@@ -1,5 +1,5 @@
 const modelRoute = require('../models').Route;
-const modelUser = require('../models').User
+const modelUser = require('../models').User;
 
 class controllerAdmin {
     static viewHome(req, res){
@@ -54,8 +54,7 @@ class controllerAdmin {
       modelUser.findAll({include: modelRoute})
       .then((dataUser) => {
         res.send(dataUser)
-      })
-      res.render('tickets', {title: "Tickets"})
+      });
     }
 }
 
