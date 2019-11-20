@@ -1,34 +1,43 @@
-<%- include partials/head %>
-  <main>
+<%- include ./partials/head %>
+<%- include ./partials/navCustomer %>
+<main>
     <h1>HOME</h1>
-    <form action="/displayTicket.html" id="form_purchase">
-      <label for="from" class="label_form_purchase">
-        From 
-        <input list="from" name="from">
-        <datalist id="from">
-          <option value="Bandung">
-          <option value="Jakarta">
-          <option value="Medan">
-          <option value="Surabaya">
-          <option value="Yogyakarta">
-        </datalist>
-      </label>
-      <label for="to">
-        To
-        <input list="to" name="to">
-        <datalist id="to">
-          <option value="Bandung">
-          <option value="Jakarta">
-          <option value="Medan">
-          <option value="Surabaya">
-          <option value="Yogyakarta">
-        </datalist>
-      </label>
-      <label for="passenger">
-          Date 
-          <input type="date">
+
+    <% const city = []; %>
+    <% const toCity = []; %>
+
+    <% messages.forEach(e => { %>
+        <% city.push(e.dataValues.from) %>
+        <% toCity.push(e.dataValues.to) %>
+    <% }) %>
+
+    <% let cityFrom = [...new Set(city)]; %>
+    <% let cityTo = [...new Set(toCity)]; %>
+
+    <form action="" id="form_purchase">
+        <label for="from" class="label_form_purchase">
+            From
+            <input list="from" name="from">
+            <datalist id="from">
+                <% cityFrom.forEach(e => { %>
+                <option value="<%= e %>">
+                    <% }) %>
+            </datalist>
+        </label>
+        <label for="to">
+            To
+            <input list="to" name="to">
+            <datalist id="to">
+              <% cityTo.forEach(e => { %>
+              <option value="<%= e %>">
+                <% }) %>
+            </datalist>
+        </label>
+        <label for="passenger">
+            Date
+            <input type="date">
         </label>
         <input type="submit" value="Pesan">
     </form>
-  </main>
-<%- include partials/foot %>
+</main>
+<%- include ./partials/foot %>
