@@ -52,7 +52,11 @@ class ControllerUser {
                 password: 'password'
             }
         }).then((dataOrder) => {
-            res.render('order', {title: 'order', orderMessage: dataOrder});
+            res.render('order', {
+                title: 'order',
+                userMessages: req.params.id,
+                orderMessage: dataOrder
+            });
         }).catch(err => {
             res.send(err)
         });
