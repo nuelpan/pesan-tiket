@@ -6,13 +6,13 @@ module.exports = (sequelize, DataTypes) => {
     from: DataTypes.STRING,
     to: DataTypes.STRING,
     price: DataTypes.REAL
-  }, {hooks: {
-    beforeCreate: (instance) => {
-      if (instance.from === "" || instance.to === "" || instance.price === "") {
-        // console.log(instance.from === "")
-        return new Error('Field must not empty')
-      }
-    }
+  }, {
+    validate: {
+      checkField() {
+        if (this.from === "" || this.to === "" || this.price === "") {
+          throw new Error('Field must not empty')
+        }
+    },
   } ,sequelize});
   Route.associate = function(models) {
     // associations can be defined here
