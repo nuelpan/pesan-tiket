@@ -2,7 +2,34 @@
 <%- include partials/navAdmin %>
 
 <main>
-  
+  <table class="table">
+    <thead>
+      <tr>
+        <td>ID Ticket</td>
+        <td>Name</td>
+        <td>From</td>
+        <td>To</td>
+        <td>Date</td>
+        <td>Price</td>
+        <td>Status</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% if(dataTickets) { %>
+        <% dataTickets.forEach(ticket => { %>
+          <tr>
+            <td><%= ticket.id %></td>
+            <td><%= ticket.first_name %> <%= ticket.last_name %></td>
+            <td><%= ticket.Routes[0].from %></td>
+            <td><%= ticket.Routes[0].to %></td>
+            <td><%= convertToDate(ticket.Routes[0].Ticket.date) %></td>
+            <td><%= formatNumber(ticket.Routes[0].price) %></td>
+            <td><%= ticket.Routes[0].Ticket.status %></td>
+          </tr>
+        <% }) %>
+      <% } %>
+    </tbody>
+  </table>
 </main>
 
 <%- include partials/foot %>

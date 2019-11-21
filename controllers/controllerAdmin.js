@@ -6,7 +6,7 @@ class controllerAdmin {
       modelRoute.findAll()
       .then(dataRoutes => {
         // res.send(dataRoutes)
-        res.render('routes', { title: 'Routes', dataRoutes: dataRoutes} )
+        res.render('routes', { title: 'Routes', dataRoutes: dataRoutes, message:null} )
       })
     }
 
@@ -17,7 +17,22 @@ class controllerAdmin {
         price: req.body.price
       })
       .then(() => {
-        res.redirect('/admin')
+        return modelRoute.findAll()
+      })
+      .then((dataRoutes) => {
+        const message = {
+          type: "success",
+          message: "Data Saved"
+        }
+        res.render('routes', { title: 'Routes', dataRoutes: dataRoutes, message:message})
+      })
+      .catch(err => {
+        const dataRoutes = {
+          type: "error",
+          message: err.message
+        }
+        res.send(err)
+        // res.render('routes', { title: 'Routes', dataRoutes: dataRoutes, message:message})
       })
     }
 
@@ -35,7 +50,11 @@ class controllerAdmin {
         price:req.body.price
       }, {where:{id:req.params.id}})
       .then(() => {
-        res.redirect('/admin')
+        const message = {
+          type:"primary", 
+          message:"Data Saved"
+        }
+        res.render('routes', { title: 'Routes', dataRoutes: dataRoutes})
       })
     }
 
@@ -51,10 +70,11 @@ class controllerAdmin {
     }
 
     static viewTickets(req, res) {
-      modelUser.findAll({include: modelRoute})
-      .then((dataUser) => {
-        res.send(dataUser)
-      });
+      modelUser.findAll({include: modelRoute, individualHooks: true})
+      .then((dataTickets) => {
+        // res.send(dataTickets)
+        res.render('tickets', {title: "Tickets", dataTickets: dataTickets})
+      })
     }
 }
 

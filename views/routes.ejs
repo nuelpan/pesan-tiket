@@ -1,5 +1,14 @@
 <%- include partials/head %>
 <%- include partials/navAdmin %>
+
+<%- include components/messageBox.ejs %>
+<!-- <% if (message) { %>
+  <div class="message_box <%= message.type %>">
+    <%= message.message %>
+  </div>
+<% } %> -->
+
+
 <form action="" method="POST">
   <div class="field">
     <label>From</label>
@@ -16,7 +25,7 @@
   <input type="submit" value="Save">
 </form>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>From</th>
@@ -31,7 +40,7 @@
         <tr>
           <td><%= item.from %></td>
           <td><%= item.to %></td>
-          <td><%= item.price %></td>
+          <td><%= formatNumber(item.price) %></td>
           <td><a href="/admin/<%= item.id %>/edit">Edit</a>|<a href="/admin/<%= item.id %>/delete" onclick="return confirm('Are you sure want to delete this route?')">Delete</a></td>
         </tr>  
       <% }) %>

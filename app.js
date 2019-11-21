@@ -7,8 +7,11 @@ const user = require('./routers/user');
 
 // set view engine using ejs
 app.set('view engine', 'ejs');
+app.use(express.static('./styles'))
+app.locals.convertToDate = require('./helpers/convertDate')
+app.locals.formatNumber = require('./helpers/formatNumber')
 
-// set router route root
+// set router root
 app.use('/', user);
 app.use('/admin', admin);
 
