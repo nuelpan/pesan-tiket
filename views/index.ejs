@@ -1,7 +1,7 @@
 <%- include ./partials/head %>
 <%- include ./partials/navCustomer %>
 <main>
-    <h1>HOME</h1>
+    <h1 class="center-text">PESAN TIKET</h1>
 
     <% const city = []; %>
     <% const toCity = []; %>
@@ -14,7 +14,7 @@
     <% let cityFrom = [...new Set(city)]; %>
     <% let cityTo = [...new Set(toCity)]; %>
 
-    <form action="" id="form_purchase">
+    <form action="" id="form_purchase" class="center-form">
         <label for="from" class="label_form_purchase">
             From
             <input list="from" name="from">

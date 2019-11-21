@@ -7,6 +7,7 @@
 nav {
   height: 3rem;
   background: #7ed6df;
+  padding: 0 3rem;
 }
 
 nav ul {
@@ -17,4 +18,40 @@ nav ul {
 nav ul li {
   list-style: none;
   line-height: 3rem;
+  margin-left: 1rem;
+}
+
+li a {
+  display: block;
+  color: #fff;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.center-form {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  width: 100%;
+  margin: auto;
+}
+
+.center-form input[type="text"], .center-form input[type="list"], .center-form input[type="date"] {
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.center-form input[type="submit"] {
+  height: 2rem;
+  padding: 0 1rem;
+  border: none;
+  background-color: #7ed6df;
+}
+
+.center-form input[type="submit"] {
+  height: 2rem;
+  padding: 0 1rem;
+  border: none;
 }

@@ -11,7 +11,7 @@ class controllerAdmin {
     }
 
     static createRoute(req, res){
-      let routes;
+      let routes =[]
       modelRoute.create({
         from: req.body.from,
         to: req.body.to,
@@ -29,12 +29,13 @@ class controllerAdmin {
         res.render('routes', { title: 'Routes', dataRoutes: dataRoutes, message:message})
       })
       .catch(err => {
+        console.log('iniroute',routes)
         const message = {
           type: "error",
           message: err.message
         }
-        res.send(routes)
-        res.render('routes', { title: 'Routes', dataRoutes: dataRoutes, message:message})
+        res.send(message)
+        res.render('routes', { title: 'Routes', dataRoutes: routes, message:message})
       })
     }
 
