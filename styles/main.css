@@ -18,12 +18,31 @@ nav ul {
 nav ul li {
   list-style: none;
   line-height: 3rem;
-  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+nav li.profile {
+  margin-left: auto;
 }
 
 li a {
   display: block;
   color: #fff;
+}
+
+main.hero {
+  position: relative;
+  height: calc(100vh - 3rem);
+  background-image: url('https://picsum.photos/id/1050/2000/1333/?blur');
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+h1 {
+  padding-top: 2rem; 
 }
 
 .center-text {
@@ -38,7 +57,20 @@ li a {
   margin: auto;
 }
 
-.center-form input[type="text"], .center-form input[type="list"], .center-form input[type="date"] {
+#form_purchase label {
+  color: #fff;
+}
+
+.center-form.banner {
+  background: rgba(0,0,0,0.5);
+}
+
+.center-form.banner select {
+  height: 2rem;
+  background-color: #fff
+}
+
+.center-form input[type="text"], .center-form input[type="list"], .center-form input[type="date"], select {
   height: 2rem;
   margin-right: 1rem;
 }
@@ -54,4 +86,12 @@ li a {
   height: 2rem;
   padding: 0 1rem;
   border: none;
+}
+
+.message_box {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  width: 100%;
+  background-color: #adf199;
 }

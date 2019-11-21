@@ -1,5 +1,6 @@
 const modelRoute = require('../models').Route;
 const modelUser = require('../models').User;
+const modelTicket = require('../models/').Ticket;
 
 class controllerAdmin {
     static viewHome(req, res){
@@ -73,11 +74,19 @@ class controllerAdmin {
     }
 
     static viewTickets(req, res) {
-      modelUser.findAll({include: modelRoute, individualHooks: true})
-      .then((dataTickets) => {
-        // res.send(dataTickets)
+
+      modelTicket.findAll({
+        include: [modelUser, modelRoute]
+      }).then(dataTickets => {
         res.render('tickets', {title: "Tickets", dataTickets: dataTickets})
+      }).catch(err => {
+        res.send(err)
       })
+
+      // modelUser.findAll({include: modelRoute})
+      // .then((dataTickets) => {
+      //   res.send(dataTickets)
+      // })
     }
 }
 

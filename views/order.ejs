@@ -1,14 +1,17 @@
 <%- include ./partials/head %>
 <%- include ./partials/navCustomer %>
-<Table>
-    <tr>
-        <th>ID</th>
-        <th>Date</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Price</th>
-        <th>Status</th>
-    </tr>
+<Table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
     <% orderMessage.forEach((e, index) => { %>
         <tr>
             <td><%= index + 1 %></td>
@@ -19,5 +22,6 @@
             <td><%= e.dataValues.status %></td>
         </tr>
     <% }) %>
+    </tbody>
 </Table>
 <%- include ./partials/foot %>

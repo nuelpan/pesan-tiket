@@ -1,15 +1,9 @@
 <%- include ./partials/head %>
 <%- include ./partials/navCustomer %>
-<main>
-    <h1>HOME</h1>
-    <p>
-    <h2>
-        Welcome,
-        <%= userMessages.first_name %>
-        <%= userMessages.last_name %>
-    </h2>
-    </p>
-    <form action="" id="form_purchase" method="post">
+<main class="hero">
+    <h1 class="text-center">PESAN TIKET</h1>
+
+    <form action="" id="form_purchase" class="center-form banner" method="post">
         <input type="text" id="UserId" name="UserId" value="<%= userMessages.id %>" hidden>
         <label for="fromTo" class="label_form_purchase">
             Trip :

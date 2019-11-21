@@ -13,7 +13,7 @@ router.get('/:id/edit', controllerAdmin.viewEditRoute)
 router.get('/:id/delete', controllerAdmin.deleteRoute)
 router.get('/tickets', controllerAdmin.viewTickets)
 
-router.post('/', controllerAdmin.createRoute);
+router.post('/' ,controllerAdmin.createRoute);
 router.post('/:id/edit', controllerAdmin.saveEditRoute)
 
 module.exports = router;
