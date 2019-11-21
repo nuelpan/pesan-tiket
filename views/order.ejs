@@ -1,4 +1,23 @@
 <%- include ./partials/head %>
 <%- include ./partials/navCustomer %>
-Order Page
+<Table>
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Price</th>
+        <th>Status</th>
+    </tr>
+    <% orderMessage.forEach((e, index) => { %>
+        <tr>
+            <td><%= index + 1 %></td>
+            <td><%= convertToDate(e.dataValues.date) %></td>
+            <td><%= e.dataValues.Route.dataValues.from %></td>
+            <td><%= e.dataValues.Route.dataValues.to %></td>
+            <td><%= formatNumber(e.dataValues.Route.dataValues.price) %></td>
+            <td><%= e.dataValues.status %></td>
+        </tr>
+    <% }) %>
+</Table>
 <%- include ./partials/foot %>

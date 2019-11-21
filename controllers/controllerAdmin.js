@@ -1,5 +1,5 @@
 const modelRoute = require('../models').Route;
-const modelUser = require('../models').User
+const modelUser = require('../models').User;
 
 class controllerAdmin {
     static viewHome(req, res){

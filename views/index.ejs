@@ -1,41 +1,27 @@
 <%- include ./partials/head %>
 <%- include ./partials/navCustomer %>
 <main>
-    <h1 class="center-text">PESAN TIKET</h1>
-
-    <% const city = []; %>
-    <% const toCity = []; %>
-
-    <% messages.forEach(e => { %>
-        <% city.push(e.dataValues.from) %>
-        <% toCity.push(e.dataValues.to) %>
-    <% }) %>
-
-    <% let cityFrom = [...new Set(city)]; %>
-    <% let cityTo = [...new Set(toCity)]; %>
-
-    <form action="" id="form_purchase" class="center-form">
-        <label for="from" class="label_form_purchase">
-            From
-            <input list="from" name="from">
-            <datalist id="from">
-                <% cityFrom.forEach(e => { %>
-                <option value="<%= e %>">
-                    <% }) %>
-            </datalist>
-        </label>
-        <label for="to">
-            To
-            <input list="to" name="to">
-            <datalist id="to">
-              <% cityTo.forEach(e => { %>
-              <option value="<%= e %>">
+    <h1>HOME</h1>
+    <p>
+    <h2>
+        Welcome,
+        <%= userMessages.first_name %>
+        <%= userMessages.last_name %>
+    </h2>
+    </p>
+    <form action="" id="form_purchase" method="post">
+        <input type="text" id="UserId" name="UserId" value="<%= userMessages.id %>" hidden>
+        <label for="fromTo" class="label_form_purchase">
+            Trip :
+            <select list="RouteId" name="RouteId">
+                <% routeMessages.forEach(e => { %>
+                    <option value="<%= e.id %>"><%= e.from %> => <%= e.to %></option>
                 <% }) %>
-            </datalist>
+            </select>
         </label>
-        <label for="passenger">
+        <label for="date">
             Date
-            <input type="date">
+            <input type="date" name="date" id="date">
         </label>
         <input type="submit" value="Pesan">
     </form>
