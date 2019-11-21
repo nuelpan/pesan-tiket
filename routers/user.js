@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controllerUser = require('../controllers/ControllerUser');
+const controllerRoute = require('../controllers/controllerRoute');
 
 // encoded url
 router.use(express.urlencoded({extended: true}));
@@ -9,6 +10,5 @@ router.use(express.urlencoded({extended: true}));
 router.get('/', controllerUser.viewIndex);
 router.post('/', controllerUser.createOrder);
 router.get('/order/:id', controllerUser.viewOrder);
-router.post('/order/:id', controllerUser.updateOrder);
 
 module.exports = router;

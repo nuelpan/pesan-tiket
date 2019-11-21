@@ -44,27 +44,37 @@ class ControllerUser {
     }
 
     static viewOrder(req, res) {
-        modelUser.findAll({
-            include: modelRoute,
-            where: {
-                id: req.params.id,
-                email: 'michael.wenceslaus@gmail.com',
-                password: 'password'
-            }
-        }).then((dataOrder) => {
-            console.log(dataOrder.User);
+        modelTicket.findAll({
+            where: {UserId: req.params.id},
+            include: [modelUser, modelRoute]
+        }).then(dataTicket => {
+            console.log(dataTicket[0].dataValues.Route);
             res.render('order', {
                 title: 'order',
                 userMessages: req.params.id,
-                orderMessage: dataOrder
+                orderMessage: dataTicket
             });
         }).catch(err => {
             res.send(err)
-        });
-    }
+        })
 
-    static updateOrder(req, res) {
-
+        // modelUser.findOne({
+        //     include: modelRoute,
+        //     where: {
+        //         id: req.params.id,
+        //         email: 'michael.wenceslaus@gmail.com',
+        //         password: 'password'
+        //     }
+        // }).then((dataOrder) => {
+        //     console.log(dataOrder.dataValues.Routes[2].Ticket);
+        //     res.render('order', {
+        //         title: 'order',
+        //         userMessages: req.params.id,
+        //         orderMessage: dataOrder
+        //     });
+        // }).catch(err => {
+        //     res.send(err)
+        // });
     }
 }
 
