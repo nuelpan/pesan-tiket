@@ -12,10 +12,10 @@
     <% orderMessage.forEach((e, index) => { %>
         <tr>
             <td><%= index + 1 %></td>
-            <td><%= e.dataValues.date %></td>
+            <td><%= convertToDate(e.dataValues.date) %></td>
             <td><%= e.dataValues.Route.dataValues.from %></td>
             <td><%= e.dataValues.Route.dataValues.to %></td>
-            <td><%= e.dataValues.Route.dataValues.price %></td>
+            <td><%= formatNumber(e.dataValues.Route.dataValues.price) %></td>
             <td><%= e.dataValues.status %></td>
         </tr>
     <% }) %>
