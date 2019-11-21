@@ -16,8 +16,6 @@ app.locals.formatNumber = require('./helpers/formatNumber');
 app.use('/', user);
 app.use('/admin', admin);
 
-app.get('/favicon.ico', (req, res) => res.status(204));
-
 app.listen(port, () => {
     console.log('app listen on port 3000');
 });
