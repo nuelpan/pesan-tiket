@@ -6,6 +6,12 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     Ticket.init({
+        id: {
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataTypes.INTEGER
+        },
         UserId: DataTypes.INTEGER,
         RouteId: DataTypes.INTEGER,
         date: DataTypes.DATE,

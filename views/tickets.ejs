@@ -19,12 +19,12 @@
         <% dataTickets.forEach(ticket => { %>
           <tr>
             <td><%= ticket.id %></td>
-            <td><%= ticket.first_name %> <%= ticket.last_name %></td>
-            <td><%= ticket.Routes[0].from %></td>
-            <td><%= ticket.Routes[0].to %></td>
-            <td><%= convertToDate(ticket.Routes[0].Ticket.date) %></td>
-            <td><%= formatNumber(ticket.Routes[0].price) %></td>
-            <td><%= ticket.Routes[0].Ticket.status %></td>
+            <td><%= ticket.User.first_name %> <%= ticket.User.last_name %></td>
+            <td><%= ticket.Route.from %></td>
+            <td><%= ticket.Route.to %></td>
+            <td><%= convertToDate(ticket.date) %></td>
+            <td><%= formatNumber(ticket.Route.price) %></td>
+            <td><%= ticket.status %></td>
           </tr>
         <% }) %>
       <% } %>
