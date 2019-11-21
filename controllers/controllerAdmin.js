@@ -11,6 +11,7 @@ class controllerAdmin {
     }
 
     static createRoute(req, res){
+      let routes;
       modelRoute.create({
         from: req.body.from,
         to: req.body.to,
@@ -20,6 +21,7 @@ class controllerAdmin {
         return modelRoute.findAll()
       })
       .then((dataRoutes) => {
+        routes = dataRoutes;
         const message = {
           type: "success",
           message: "Data Saved"
@@ -27,12 +29,12 @@ class controllerAdmin {
         res.render('routes', { title: 'Routes', dataRoutes: dataRoutes, message:message})
       })
       .catch(err => {
-        const dataRoutes = {
+        const message = {
           type: "error",
           message: err.message
         }
-        res.send(err)
-        // res.render('routes', { title: 'Routes', dataRoutes: dataRoutes, message:message})
+        res.send(routes)
+        res.render('routes', { title: 'Routes', dataRoutes: dataRoutes, message:message})
       })
     }
 
