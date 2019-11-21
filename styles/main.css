@@ -11,10 +11,10 @@ nav {
 
 nav ul {
   display: flex;
+  height: 100%;
 }
 
 nav ul li {
-  height: 100%;
   list-style: none;
-  
+  line-height: 3rem;
 }
