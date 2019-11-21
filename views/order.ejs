@@ -10,18 +10,20 @@
         <th>Price</th>
         <th>Status</th>
     </tr>
-    <tr>
-        <td>[ID]</td>
-        <td>
-            <%= orderMessage.first_name %>
-            <%= orderMessage.last_name %>
-        </td>
-        <td><%= orderMessage.gender %></td>
-        <td><%= orderMessage.Routes[0].from %></td>
-        <td><%= orderMessage.Routes[0].to %></td>
-        <td><%= orderMessage.Routes[0].price %></td>
-        <td><%= orderMessage.Routes[0].Ticket.status %></td>
-        <td></td>
-    </tr>
+    <% orderMessage.dataValues.forEach(e => { %>
+        <tr>
+            <td>[ID]</td>
+            <td>
+                <%= e.first_name %>
+                <%= e.last_name %>
+            </td>
+            <td><%= e.gender %></td>
+            <td><%= e.Routes[0].from %></td>
+            <td><%= e.Routes[0].to %></td>
+            <td><%= e.Routes[0].price %></td>
+            <td><%= e.Routes[0].Ticket.status %></td>
+            <td></td>
+        </tr>
+    <% }) %>
 </Table>
 <%- include ./partials/foot %>

@@ -44,7 +44,7 @@ class ControllerUser {
     }
 
     static viewOrder(req, res) {
-        return modelUser.findOne({
+        modelUser.findAll({
             include: modelRoute,
             where: {
                 id: req.params.id,
@@ -52,6 +52,7 @@ class ControllerUser {
                 password: 'password'
             }
         }).then((dataOrder) => {
+            console.log(dataOrder.User);
             res.render('order', {
                 title: 'order',
                 userMessages: req.params.id,

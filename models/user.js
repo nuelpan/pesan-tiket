@@ -24,21 +24,21 @@ module.exports = (sequelize, DataTypes) => {
         is_login: DataTypes.BOOLEAN
     }, {
         hooks: {
-            afterFind(attributes, options) {
-                let prefix = "";
-                let firstNameCapitalize = attributes.dataValues.first_name[0].toUpperCase();
-                let firstName = attributes.dataValues.first_name.slice(1);
-                let lastNameCapitalize = attributes.dataValues.last_name[0].toUpperCase();
-                let lastName = attributes.dataValues.last_name.slice(1);
-                if (attributes.dataValues.gender === 'male') {
-                    prefix = 'Mr.'
-                } else {
-                    prefix = 'Mrs.'
-                }
-                attributes.dataValues.first_name = prefix + firstNameCapitalize + firstName;
-                attributes.dataValues.last_name = lastNameCapitalize + lastName;
-                attributes.dataValues.gender = attributes.dataValues.gender[0].toUpperCase();
-            }
+            // afterFind(attributes, options) {
+            //     let prefix = "";
+            //     let firstNameCapitalize = attributes.dataValues.first_name[0].toUpperCase();
+            //     let firstName = attributes.dataValues.first_name.slice(1);
+            //     let lastNameCapitalize = attributes.dataValues.last_name[0].toUpperCase();
+            //     let lastName = attributes.dataValues.last_name.slice(1);
+            //     if (attributes.dataValues.gender === 'male') {
+            //         prefix = 'Mr.'
+            //     } else {
+            //         prefix = 'Mrs.'
+            //     }
+            //     attributes.dataValues.first_name = prefix + firstNameCapitalize + firstName;
+            //     attributes.dataValues.last_name = lastNameCapitalize + lastName;
+            //     attributes.dataValues.gender = attributes.dataValues.gender[0].toUpperCase();
+            // }
         },
         sequelize
     });
