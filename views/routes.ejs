@@ -1,20 +1,51 @@
 <%- include partials/head %>
 <%- include partials/navAdmin %>
 
+<%- include components/messageBox.ejs %>
+<!-- <% if (message) { %>
+  <div class="message_box <%= message.type %>">
+    <%= message.message %>
+  </div>
+<% } %> -->
+
+
 <form action="" method="POST">
   <div class="field">
     <label>From</label>
-    <input type="text">
+    <input type="text" name="from">
   </div>
   <div class="field">
     <label>To</label>
-    <input type="text">
+    <input type="text" name="to">
   </div>
   <div class="field">
     <label>Price</label>
-    <input type="text">
+    <input type="text"  name="price">
   </div>
   <input type="submit" value="Save">
 </form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>To</th>
+      <th>Price</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if(dataRoutes) { %>
+      <% dataRoutes.forEach(item => { %>
+        <tr>
+          <td><%= item.from %></td>
+          <td><%= item.to %></td>
+          <td><%= formatNumber(item.price) %></td>
+          <td><a href="/admin/<%= item.id %>/edit">Edit</a>|<a href="/admin/<%= item.id %>/delete" onclick="return confirm('Are you sure want to delete this route?')">Delete</a></td>
+        </tr>  
+      <% }) %>
+    <% } %>
+  </tbody>
+</table>
 
 <%- include partials/foot %>

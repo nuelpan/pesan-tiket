@@ -1,8 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Ticket = sequelize.define('Ticket', {
-    userId: DataTypes.INTEGER,
-    routeId: DataTypes.INTEGER,
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    UserId: DataTypes.INTEGER,
+    RouteId: DataTypes.INTEGER,
     date: DataTypes.DATE,
     status: DataTypes.STRING
   }, {});
